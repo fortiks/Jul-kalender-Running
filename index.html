@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jul Kalender Challenge</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 5px; text-align: center; }
+    th { background: #eee; }
+    td.Yes { background-color: #c8e6c9; }   /* green for Yes */
+    td.No  { background-color: #ffcdd2; }   /* red for No */
+  </style>
+</head>
+<body>
+  <h1>Jul Kalender Challenge</h1>
+  <table id="challenge"></table>
+
+  <script>
+    fetch('Challenge.csv')
+      .then(r => r.text())
+      .then(csv => {
+        const table = document.getElementById('challenge');
+        const rows = csv.split('\n');
+        rows.forEach((row, i) => {
+          const tr = document.createElement('tr');
+          const cells = row.split(',');
+          cells.forEach(cell => {
+            const td = document.createElement(i===0 ? 'th' : 'td');
+            const value = cell.replace(/"/g,'').trim();
+            td.textContent = value;
+            if (value === "Yes") td.classList.add('Yes');
+            if (value === "No") td.classList.add('No');
+            tr.appendChild(td);
+          });
+          table.appendChild(tr);
+        });
+      });
+  </script>
+</body>
+</html>
