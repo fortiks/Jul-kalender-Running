@@ -4,9 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Jul Kalender Challenge</title>
+  <button id="musicToggle">🎵 Play Music</button>
 </head>
 <body>
   <h1>Jul Kalender Challenge</h1>
+  <audio id="bgMusic" loop>
+    <source src="beautiful-christmas-426337.mp3" type="audio/mpeg">
+  </audio>
   <table id="challenge"></table>
 
   <script>
@@ -52,6 +56,26 @@
     setTimeout(() => snowflake.remove(), 10000);
   }
   setInterval(createSnowflake, 200);
+</script>
+<script>
+  // Music 
+  const music = document.getElementById('bgMusic');
+  const btn = document.getElementById('musicToggle');
+  let isPlaying = false;
+
+  btn.addEventListener('click', () => {
+    if (!isPlaying) {
+      music.play();
+      isPlaying = true;
+      btn.textContent = "🔊 Music On";
+      btn.classList.add("active");
+    } else {
+      music.pause();
+      isPlaying = false;
+      btn.textContent = "🎵 Play Music";
+      btn.classList.remove("active");
+    }
+  });
 </script>
 </body>
 </html>
