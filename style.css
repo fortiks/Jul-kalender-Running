@@ -15,6 +15,9 @@ h1 {
   font-weight: 700;
   text-shadow: 1px 1px 1px #ffffff;
 }
+h1::after {
+  content: " 🎄";
+}
 
 /* -------- Buttons -------- */
 .button-container {
@@ -60,7 +63,7 @@ th, td {
 }
 
 th {
-  background: #e6d5b8;                    /* light warm beige */
+  background: #e6d5b8;                    /* light beige */
   font-weight: 700;
 }
 
@@ -77,7 +80,7 @@ td.NA {
   color: #aaaaaa;                          /* grey for future days */
 }
 
-/* -------- Optional small festive touches -------- */
+/* -------- festive touches -------- */
 body::before {
   content: "🎄";
   font-size: 3rem;
@@ -92,4 +95,21 @@ body::after {
   position: absolute;
   top: 15px;
   right: 20px;
+}
+
+
+/* -------- Snowfall effect -------- */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: white;
+  font-size: 1em;
+  opacity: 0.9;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
 }
