@@ -1,0 +1,95 @@
+/* -------- Global Styles -------- */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f7eedc;                 /* warm beige */
+  color: #2f3e2f;                      /* deep green text */
+  text-align: center;
+  padding: 30px;
+}
+
+/* -------- Title -------- */
+h1 {
+  font-size: 3rem;
+  color: #b2302d;                      /* Christmas red */
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px #ffffff;
+}
+
+/* -------- Buttons -------- */
+.button-container {
+  margin: 20px 0 40px 0;
+}
+
+.button-container a {
+  display: inline-block;
+  background: #b2302d;                 /* Christmas red */
+  color: white;
+  padding: 12px 28px;
+  margin: 0 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.1s, background 0.2s;
+}
+
+.button-container a:hover {
+  background: #8d231f;
+  transform: scale(1.05);
+}
+
+/* -------- Table -------- */
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 95%;
+  max-width: 900px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+th {
+  background: #e6d5b8;                    /* light warm beige */
+  font-weight: 700;
+}
+
+/* -------- Cell Coloring -------- */
+td.Yes {
+  background-color: #c8e6c9;              /* soft green */
+}
+
+td.No {
+  background-color: #ffcdd2;              /* soft red */
+}
+
+td.NA {
+  color: #aaaaaa;                          /* grey for future days */
+}
+
+/* -------- Optional small festive touches -------- */
+body::before {
+  content: "🎄";
+  font-size: 3rem;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
+
+body::after {
+  content: "⭐";
+  font-size: 3rem;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
