@@ -90,6 +90,10 @@ th {
 }
 
 /* -------- Cell Coloring -------- */
+td {
+  background-color: #f7f1e3; /* warm light beige */
+}
+
 td.Yes {
   background-color: #c8e6c9;              /* soft green */
 }
