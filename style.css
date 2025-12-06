@@ -44,25 +44,25 @@ h1::after {
 }
 
 #musicToggle {
-  background: #b2302d;
-  color: white;
+  background: #b2302d;          /* Christmas red */
+  color: white;                 /* white text */
   border: none;
-  padding: 12px 24px;
+  padding: 24px 48px;           /* size */
   margin-bottom: 20px;
-  font-size: 1.1rem;
-  border-radius: 10px;
+  font-size: 2rem;              /*  text size */
+  border-radius: 20px;          /* slightly rounder for large button */
   cursor: pointer;
-  font-weight: 600;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  font-weight: 700;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.2); /* larger shadow for big button */
   transition: 0.2s;
 }
 
 #musicToggle.active {
-  background: #2e7d32; /* green when playing */
+  background: #2e7d32;          /* green when music is playing */
 }
 
 #musicToggle:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);       /* nicer hover feel for large button */
 }
 
 /* -------- Table -------- */
