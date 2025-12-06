@@ -43,6 +43,28 @@ h1::after {
   transform: scale(1.05);
 }
 
+#musicToggle {
+  background: #b2302d;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  transition: 0.2s;
+}
+
+#musicToggle.active {
+  background: #2e7d32; /* green when playing */
+}
+
+#musicToggle:hover {
+  transform: scale(1.05);
+}
+
 /* -------- Table -------- */
 table {
   margin: 0 auto;
