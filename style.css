@@ -9,7 +9,7 @@ body {
 
 /* -------- Title -------- */
 h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   color: #b2302d;                      /* Christmas red */
   margin-bottom: 10px;
   font-weight: 700;
@@ -47,7 +47,7 @@ h1::after {
   background: #b2302d;          /* Christmas red */
   color: white;                 /* white text */
   border: none;
-  padding: 16px 32px;           /* size */
+  padding: 12px 28px;           /* size */
   margin-bottom: 20px;
   font-size: 2rem;              /*  text size */
   border-radius: 20px;          /* slightly rounder for large button */
