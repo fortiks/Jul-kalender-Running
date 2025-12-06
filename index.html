@@ -30,5 +30,28 @@
         });
       });
   </script>
+  <script>
+  // --- Snowfall effect ---
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.textContent = '❄';
+
+    // random horizontal start position
+    snowflake.style.left = Math.random() * 100 + 'vw';
+
+    // random size
+    snowflake.style.fontSize = (Math.random() * 12 + 8) + 'px';
+
+    // random animation duration
+    snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+
+    document.body.appendChild(snowflake);
+
+    // remove after falling
+    setTimeout(() => snowflake.remove(), 10000);
+  }
+  setInterval(createSnowflake, 200);
+</script>
 </body>
 </html>
