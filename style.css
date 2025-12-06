@@ -47,7 +47,7 @@ h1::after {
   background: #b2302d;          /* Christmas red */
   color: white;                 /* white text */
   border: none;
-  padding: 24px 48px;           /* size */
+  padding: 16px 32px;           /* size */
   margin-bottom: 20px;
   font-size: 2rem;              /*  text size */
   border-radius: 20px;          /* slightly rounder for large button */
