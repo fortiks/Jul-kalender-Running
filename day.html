@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Day Details</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f5f5f5;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  th {
+    background: #eee;
+  }
+  tbody tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+</style>
+</head>
+<body>
+
+<h1 id="dayTitle">Day Details</h1>
+
+<table id="dayTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Distance (km)</th>
+      <th>Pace</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Rows will be added here -->
+  </tbody>
+</table>
+
+<script>
+  // 1. Get the day number from the URL
+  const params = new URLSearchParams(window.location.search);
+  const day = params.get('day');
+
+  // Update the title to show which day
+  document.getElementById('dayTitle').textContent = `Day ${day} Details`;
+
+  // 2. Fetch the CSV for this day
+  fetch(`day${day}.csv`)
+    .then(response => response.text())
+    .then(csv => {
+      const tbody = document.querySelector("#dayTable tbody");
+      const rows = csv.split('\n');
+
+      rows.forEach((row, i) => {
+        if (!row.trim()) return; // skip empty lines
+        const tr = document.createElement('tr');
+        const cells = row.split(',');
+
+        cells.forEach(cell => {
+          const td = document.createElement('td');
+          td.textContent = cell.trim();
+          tr.appendChild(td);
+        });
+
+        tbody.appendChild(tr);
+      });
+    })
+    .catch(err => {
+      console.error("Error loading CSV:", err);
+      const tbody = document.querySelector("#dayTable tbody");
+      tbody.innerHTML = `<tr><td colspan="3">No data found for Day ${day}</td></tr>`;
+    });
+</script>
+
+</body>
+</html>
