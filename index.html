@@ -15,7 +15,7 @@
   <table id="challenge"></table>
 
   <script>
-  fetch('Challenge.csv')
+fetch('Challenge.csv')
   .then(r => r.text())
   .then(csv => {
     const table = document.getElementById('challenge');
@@ -27,31 +27,27 @@
 
       cells.forEach((cell, j) => {
         const td = document.createElement(i === 0 ? 'th' : 'td');
-        const value = cell.replace(/"/g,'').trim();
+        const value = cell.replace(/"/g, '').trim();
 
-        if (i === 0) {
-          // header row, leave as text
-          td.textContent = value;
-        } else if (j >= 1 && j <= 24) {
-          // Day columns → create a button
+        if (i === 0 && j >= 1 && j <= 24) {
+          // Column header (Day 1–24) → clickable button
           const btn = document.createElement('button');
-          btn.textContent = value || j; // Show Yes/No or fallback to day number
+          btn.textContent = value || `Day ${j}`;
           btn.classList.add('dayBtn');
 
-          // Click opens new page with day number
           btn.addEventListener('click', () => {
             window.open(`day.html?day=${j}`, "_blank");
           });
 
           td.appendChild(btn);
 
-          // Optional: preserve coloring
-          if (value === "Yes") btn.classList.add('Yes');
-          if (value === "No") btn.classList.add('No');
-
         } else {
-          // Any other column (like user name)
+          // Normal text for other headers or row data
           td.textContent = value;
+
+          // Optional: preserve Yes/No coloring in cells
+          if (value === "Yes") td.classList.add('Yes');
+          if (value === "No") td.classList.add('No');
         }
 
         tr.appendChild(td);
@@ -60,7 +56,7 @@
       table.appendChild(tr);
     });
   });
-  </script>
+</script>
   <script>
   // --- Snowfall effect ---
   function createSnowflake() {
