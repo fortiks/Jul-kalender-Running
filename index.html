@@ -98,13 +98,13 @@ function updateRequirements() {
   const totalRequired = 0.25 * dayNumber * (dayNumber + 1);
 
   const box = document.getElementById('requirements');
-  box.innerHTML = `
-    <b>Dagens datum:</b> ${today.toLocaleDateString()}<br>
-    <b>Dag i utmaningen:</b> ${dayNumber}<br><br>
+  document.getElementById("infoBox").innerHTML = `
+  <b>Dagens datum:</b> ${today.toLocaleDateString()}<br>
+  <b>Dag i utmaningen:</b> ${dayNumber}<br><br>
 
-    <b>Krav idag:</b> ${requiredToday.toFixed(2)} km<br>
-    <b>Totalt krav hittills:</b> ${totalRequired.toFixed(2)} km
-  `;
+  <b>Krav idag:</b> ${requiredToday.toFixed(2)} km<br>
+  <b>Totalt krav hittills:</b> ${totalRequired.toFixed(2)} km
+`;
 }
 
 updateRequirements();
