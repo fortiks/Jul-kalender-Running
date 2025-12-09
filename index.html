@@ -97,13 +97,17 @@ function updateRequirements() {
   const dayYesterday = (dayNumber-1) 
   // Total required up to today = 0.25 × n × (n + 1)
   const totalRequired = 0.25 * dayYesterday * (dayYesterday + 1);
-
+  // sum (n/2) (a+ an)
+  const sum = (24/2) (0.5 + 1.2)  
+  const totalLeft = sum - totalRequired;
+    
   const box = document.getElementById('requirements');
   document.getElementById("infoBox").innerHTML = `
   <b>Date:</b> ${today.toLocaleDateString()}<br>
   
   <b>Required Running Today:</b> ${requiredToday.toFixed(2)} km<br>
-  <b>Totalt Running:</b> ${totalRequired.toFixed(2)} km
+  <b>Totalt Running Done:</b> ${totalRequired.toFixed(2)} km
+  <b>Totalt Running Left:</b> ${totalLeft.toFixed(2)} km
 `;
 }
 
