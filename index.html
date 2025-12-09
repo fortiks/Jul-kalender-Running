@@ -15,25 +15,51 @@
   <table id="challenge"></table>
 
   <script>
-    fetch('Challenge.csv')
-      .then(r => r.text())
-      .then(csv => {
-        const table = document.getElementById('challenge');
-        const rows = csv.split('\n');
-        rows.forEach((row, i) => {
-          const tr = document.createElement('tr');
-          const cells = row.split(',');
-          cells.forEach(cell => {
-            const td = document.createElement(i===0 ? 'th' : 'td');
-            const value = cell.replace(/"/g,'').trim();
-            td.textContent = value;
-            if (value === "Yes") td.classList.add('Yes');
-            if (value === "No") td.classList.add('No');
-            tr.appendChild(td);
+  fetch('Challenge.csv')
+  .then(r => r.text())
+  .then(csv => {
+    const table = document.getElementById('challenge');
+    const rows = csv.split('\n');
+
+    rows.forEach((row, i) => {
+      const tr = document.createElement('tr');
+      const cells = row.split(',');
+
+      cells.forEach((cell, j) => {
+        const td = document.createElement(i === 0 ? 'th' : 'td');
+        const value = cell.replace(/"/g,'').trim();
+
+        if (i === 0) {
+          // header row, leave as text
+          td.textContent = value;
+        } else if (j >= 1 && j <= 24) {
+          // Day columns → create a button
+          const btn = document.createElement('button');
+          btn.textContent = value || j; // Show Yes/No or fallback to day number
+          btn.classList.add('dayBtn');
+
+          // Click opens new page with day number
+          btn.addEventListener('click', () => {
+            window.open(`day.html?day=${j}`, "_blank");
           });
-          table.appendChild(tr);
-        });
+
+          td.appendChild(btn);
+
+          // Optional: preserve coloring
+          if (value === "Yes") btn.classList.add('Yes');
+          if (value === "No") btn.classList.add('No');
+
+        } else {
+          // Any other column (like user name)
+          td.textContent = value;
+        }
+
+        tr.appendChild(td);
       });
+
+      table.appendChild(tr);
+    });
+  });
   </script>
   <script>
   // --- Snowfall effect ---
