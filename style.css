@@ -43,6 +43,26 @@ h1::after {
   transform: scale(1.05);
 }
 
+.dayBtn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background: #e0f0ff;
+  cursor: pointer;
+}
+
+.dayBtn.Yes {
+  background: #a2f5a2;
+}
+
+.dayBtn.No {
+  background: #f5a2a2;
+}
+
+.dayBtn:hover {
+  background: #cde6ff;
+}
+
 #musicToggle {
   background: #b2302d;          /* Christmas red */
   color: white;                 /* white text */
