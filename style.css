@@ -44,16 +44,19 @@ h1::after {
 }
 
 .dayBtn {
-  padding: 6px 10px;
-  border-radius: 5px;
-  border: none;
-  background: #8d231f;
-  cursor: pointer;
+  background: inherit;      /* Use the parent TH background */
+  color: inherit;           /* Use the parent text color */
+  border: none;             /* Remove default border */
   font-weight: bold;
+  cursor: pointer;
+  padding: 0;               /* Remove extra padding */
+  width: 100%;              /* Fill the entire header cell */
+  height: 100%;
+  font-family: inherit;     /* Match table font */
+  font-size: inherit;       /* Match header font size */
 }
-
 .dayBtn:hover {
-  background: #a2d1ff;
+  opacity: 0.8;             /* Slight hover effect */
 }
 
 #musicToggle {
