@@ -77,5 +77,36 @@
     }
   });
 </script>
+<script>
+// --- Required distance calculator ---
+function updateRequirements() {
+  const today = new Date();
+  const start = new Date(today.getFullYear(), 11, 1); // Dec 1
+  const end = new Date(today.getFullYear(), 11, 24); // Dec 24
+
+  // Determine which day number we are on
+  let dayNumber = Math.floor((today - start) / (1000*60*60*24)) + 1;
+
+  if (dayNumber < 1) dayNumber = 1;
+  if (dayNumber > 24) dayNumber = 24;
+
+  // Required today = dayNumber / 2
+  const requiredToday = dayNumber / 2;
+
+  // Total required up to today = 0.25 × n × (n + 1)
+  const totalRequired = 0.25 * dayNumber * (dayNumber + 1);
+
+  const box = document.getElementById('requirements');
+  box.innerHTML = `
+    <b>Dagens datum:</b> ${today.toLocaleDateString()}<br>
+    <b>Dag i utmaningen:</b> ${dayNumber}<br><br>
+
+    <b>Krav idag:</b> ${requiredToday.toFixed(2)} km<br>
+    <b>Totalt krav hittills:</b> ${totalRequired.toFixed(2)} km
+  `;
+}
+
+updateRequirements();
+</script>
 </body>
 </html>
