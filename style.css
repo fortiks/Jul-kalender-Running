@@ -44,23 +44,16 @@ h1::after {
 }
 
 .dayBtn {
-  padding: 5px 10px;
+  padding: 6px 10px;
   border-radius: 5px;
   border: none;
-  background: #e0f0ff;
+  background: #cde6ff;
   cursor: pointer;
-}
-
-.dayBtn.Yes {
-  background: #a2f5a2;
-}
-
-.dayBtn.No {
-  background: #f5a2a2;
+  font-weight: bold;
 }
 
 .dayBtn:hover {
-  background: #cde6ff;
+  background: #a2d1ff;
 }
 
 #musicToggle {
