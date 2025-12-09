@@ -94,16 +94,16 @@ function updateRequirements() {
   // Required today = dayNumber / 2
   const requiredToday = dayNumber / 2;
 
+  const dayYesterday = (dayNumber-1) 
   // Total required up to today = 0.25 × n × (n + 1)
-  const totalRequired = 0.25 * dayNumber * (dayNumber + 1);
+  const totalRequired = 0.25 * dayYesterday * (dayYesterday + 1);
 
   const box = document.getElementById('requirements');
   document.getElementById("infoBox").innerHTML = `
-  <b>Dagens datum:</b> ${today.toLocaleDateString()}<br>
-  <b>Dag i utmaningen:</b> ${dayNumber}<br><br>
-
-  <b>Krav idag:</b> ${requiredToday.toFixed(2)} km<br>
-  <b>Totalt krav hittills:</b> ${totalRequired.toFixed(2)} km
+  <b>Date:</b> ${today.toLocaleDateString()}<br>
+  
+  <b>Required Running Today:</b> ${requiredToday.toFixed(2)} km<br>
+  <b>Totalt Running:</b> ${totalRequired.toFixed(2)} km
 `;
 }
 
